@@ -1,0 +1,18 @@
+.Note{
+    text-align: center;
+    border: 1px solid black;
+    padding-top: 6px;
+    padding-bottom: 15px;
+    padding-right: 20px;
+    padding-left: 10px;
+    margin: 21px 12px;
+    border-radius: 5px;
+}
+.delete__button{
+    border-radius: 12%;
+    background-color: red;
+    padding : 7px 10px;
+    cursor: pointer;
+    color: white;
+    text-align: center
+}

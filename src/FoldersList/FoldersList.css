@@ -1,0 +1,40 @@
+li{
+    text-decoration: none;
+    list-style: none;
+}
+.Folder__Name{
+    border: 1px solid black;
+    padding-top: 6px;
+    padding-bottom: 15px;
+    padding-right: 20px;
+    padding-left: 10px;
+    margin: 11px 12px;
+    border-radius: 5px;
+}
+.Folder__Name:hover{
+    background-color: wheat;
+}
+
+.add-folder{
+    margin-left: 45px;
+    background-color: royalblue;
+    padding : 7px 10px;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+}
+.selectedFolder{
+    background-color: wheat;
+}
+.goBack__button{
+    width: 120px;
+    margin-left: 50px;
+    background-color: white;
+    padding : 7px 10px;
+    cursor: pointer;
+    color: blue;
+    text-align: center;
+    font-weight: 500;
+}
+
