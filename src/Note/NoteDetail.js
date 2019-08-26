@@ -4,6 +4,12 @@ import APIContext from '../APIContext'
 import {NavLink} from 'react-router-dom'
 import './Note.css'
 import {deleteNoteRequest} from '../NotesList/NotesList'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faTrashAlt,
+  faFolder,
+  faArrowLeft
+ } from '@fortawesome/free-solid-svg-icons';
 
 class NoteDetail extends Component{
     static defaultProps={
@@ -30,23 +36,35 @@ class NoteDetail extends Component{
             <>
             <div className= "Note">
                 <NavLink to= {`/note/${noteId}`} >
-                    <h1>Folder: {folderForNote.name}</h1>
+                    <h1><FontAwesomeIcon icon={faFolder} />{' '}
+                        {folderForNote.name}
+                        </h1>
 
                     
-                        <h1>{selectedNote.name}</h1>
+                        <h2>{selectedNote.name}</h2>
                         
                         <p>Date modified on {modifiedDate}</p>
                         </NavLink>   
-                        <button className="delete__button" onClick ={() => {
-                        deleteNoteRequest(selectedNote.id, deleteNote)
-                        this.props.history.push('/')}}>Delete</button>   
+                        <div className='NoteDetail_Buttons'>
+                            <button className="delete__button" onClick ={() => {
+                                deleteNoteRequest(selectedNote.id, deleteNote)
+                                this.props.history.push('/')}}>
+                             <FontAwesomeIcon icon={faTrashAlt} />
+                            </button>   
+                            <button onClick={()=> {this.props.history.goBack()}} 
+                                className="goBack__button">
+                                <FontAwesomeIcon icon={faArrowLeft}/>
+                            </button>
+                        </div>
+                        
                     </div>
+                    
                     <section className="note__content">
                         <p>{selectedNote.content}</p>    
                     </section> 
-                   
+                    
                 
-                    <button onClick={()=> {this.props.history.goBack()}} className="goBack__button">Go Back</button>
+                   
             </>
         )
     }

@@ -1,9 +1,44 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import './FoldersList.css'
 import {NavLink} from 'react-router-dom'
-import APIContext from '../APIContext';
+import APIContext from '../APIContext'
+import {Link} from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faTrashAlt,
+  faFolder
+ } from '@fortawesome/free-solid-svg-icons';
+
+function deleteFolderRequest(folderId, callback){ 
+    fetch(`http://localhost:9090/folders/${folderId}`,{
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+    .then(res => {
+        if (!res.ok) {
+          return res.json().then(error => {
+            throw error
+          })
+        }
+        return res.json()
+      })
+      .then(data => {
+        // call the callback when the request is successful
+        // this is where the App component can remove it from state
+        callback(folderId)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  
+}
 
 class FoldersList extends Component{
+    state ={
+        shown: false
+    }
     static defaultProps = {
         folders: [],
         notes: [],
@@ -11,21 +46,34 @@ class FoldersList extends Component{
             params: {}
         }
       };
-     
+     handleGoBack = () =>{
+         this.props.history.goBack();
+     }
+     toggleColor = () =>{
+        this.setState({
+            hidden: true
+        });
+     }
     static contextType = APIContext;
     render(){
-        console.log('this context in FolderList', this.context)
-        const {folderId} = this.props.match.params;
-        const {folders} = this.context;
+        const {shown} = this.state;
+        // const {folderId} = this.props.match.params;
+        const {folders, deleteFolder} = this.context;
         const list = folders.map((folder,index)=>
-  
-        <li key={index} >
-           <NavLink to= {`/folder/${folder.id}`}>
-           <div className='Folder__Name'> 
-               {folder.name}
+        <NavLink to= {`/folder/${folder.id}`} onClick={this.toggleColor} className={shown ? 'active' : ''} key={index}>
+        <li key={index} className='Folder__Name'>
+            <div>
+            
+                <FontAwesomeIcon icon={faFolder} /> {folder.name}    
+            
             </div>
-            </NavLink>
+            <button type='button' 
+                    className='deleteIcon' 
+                    onClick={() => deleteFolderRequest(folder.id,deleteFolder)}>
+                    <FontAwesomeIcon icon={faTrashAlt} />
+            </button>
         </li>
+        </NavLink>
     
         
     )
@@ -34,10 +82,19 @@ class FoldersList extends Component{
                 <ul>
                    
                     {list }
-                    <button className="add-folder">Add a folder</button>
+
+                    <Link to='/add-folder'>  
+                        <button className="add-folder" >
+                        Add a folder  
+                        </button>
+                    </Link>
                    
                 </ul>
-                <button onClick={()=> {this.props.history.goBack()}}className="goBack__button">Go Back</button>
+                
+                <button onClick={this.handleGoBack} 
+                        className="goBack__button">
+                        Go Back
+                </button>
             </div>
         )
     }

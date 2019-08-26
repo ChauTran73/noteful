@@ -1,18 +1,28 @@
 .Note{
-    text-align: center;
-    border: 1px solid black;
-    padding-top: 6px;
-    padding-bottom: 15px;
-    padding-right: 20px;
-    padding-left: 10px;
-    margin: 21px 12px;
-    border-radius: 5px;
+    margin-top: 15px;
+    margin-right: 15px;
 }
+.note__content{
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-left: 15px;
+    
+    
+}
+
 .delete__button{
     border-radius: 12%;
     background-color: red;
     padding : 7px 10px;
     cursor: pointer;
     color: white;
-    text-align: center
+    text-align: center;
+    border: none;
+}
+.goBack__button{
+    width: 40%;
+    height: auto;
+    border: 1px solid black;
+    
 }

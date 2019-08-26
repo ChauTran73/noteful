@@ -1,8 +1,13 @@
 import React, {Component} from 'react'
-import {NavLink} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
 import Note from '../Note/Note'
 import './NotesList.css'
 import APIContext from '../APIContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faTrashAlt,
+  
+ } from '@fortawesome/free-solid-svg-icons';
 
 export function deleteNoteRequest(noteId, callback){
     fetch(`http://localhost:9090/notes/${noteId}`,{
@@ -36,45 +41,57 @@ class NotesList extends Component{
         match: {
             params: {}
         },
-        deleteNote: () =>{}
+      
       };
+     
    static contextType = APIContext;
 
+ 
     render(){
         const { folderId } = this.props.match.params;
         const { notes, deleteNote} = this.context;
         let notesForFolder =[];
    
         //filter out the notes that belong to a specific folder here
-      {folderId === undefined ? notesForFolder = notes: notesForFolder = notes.filter(note => note.folderId === folderId)  }
+      if(!folderId){
+        notesForFolder = notes
+      } 
+      else {
+          notesForFolder= notes.filter(note => note.folderId === folderId) 
+         }
     
-       const list = notesForFolder.map((note,index)=>
-       <li  key={note.id} >
-        <NavLink to={`/note/${note.id}`}>
-            <Note key={note.id} 
+       const list = notesForFolder.map(note=>
+        
+       <li  key={note.id} className="Note" >
+            <NavLink to={`/note/${note.id}`}>
+                <Note key={note.id} 
                     name={note.name} 
-                    index={index}
                     modified={note.modified}
-                    content ={note.content}/>
-                    
-          </NavLink>
-          <button className='delete__button' onClick ={() => {
+                    />
+            </NavLink>
+          <button className='delete__button' 
+                    type='button'
+                    onClick ={() => {
                         deleteNoteRequest(note.id, deleteNote)}}>
-                    Delete
-                </button>
-                
-                 
-        </li>)
+                   <FontAwesomeIcon icon={faTrashAlt} />
+           
+            </button>
+        
+         </li>)
         return(
-            <div className="NotesList">
+            <div>
                
-                <ul>
+                <ul className="NotesList">
                    {list}
                 </ul>
-                
-                <div className="AddNoteButton">
-                    <button className="add__note">Add a note</button>
+                <div className='AddNote__button'>
+                <Link to='/add-note'>
+                    <button type='button' >
+                        Add a note
+                    </button>
+                </Link>
                 </div>
+                
             </div>
         )
     }

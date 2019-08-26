@@ -1,0 +1,74 @@
+.AddFolder{
+    position: absolute; 
+     width: 100%;  
+    height: 100%; 
+    text-align: center;
+}
+.AddFolder__form{
+    display: inline-block;
+    width: auto;
+    height: 200px;
+	font-size: 16px;
+	font-weight: 300;
+    padding-left: 37px;
+    padding-right: 37px;
+    padding-top: 55px;
+    transition: opacity .5s ease, transform .5s ease;
+}
+label{
+    font-weight: 400;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  color: rgba(255,255,255,.7);
+  display: block;
+}
+input[type="text"]{
+    display: inline-block;
+    width: 250px;
+    height: 40px;
+    outline: none;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 10px 10px 10px 10px;
+  }
+button,
+  button::after {
+    -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+      transition: all 0.3s;
+  }
+  
+  button {
+    background: none;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    display: inline-block;
+    margin: 5px auto;
+    padding: 5px 6px;
+    position: relative;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  button::before,
+  button::after {
+    background: #fff;
+    content: '';
+    position: absolute;
+    z-index: -1;
+  }
+  button.submit__FolderButton,button.cancel__button{
+      margin-right: 5px;
+      margin-top: 10px;
+  }
+  button.submit__FolderButton:hover {
+    color: green;
+  }
+  
+  button.cancel__button:hover {
+    color: red;
+  }

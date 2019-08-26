@@ -1,18 +1,47 @@
 .NotesList{
-   position: absolute;
+   position: relative;
     width: 70%;
-    margin: auto;
-   padding: 5px 10px;
+    margin: 8px auto;
 }
-.add__note{
-    display: block;
-    width: 40%;
-    height: 25%;
-    margin-left: 55px;
+.Note{
+    /* text-align: center;
+    border: 1px solid black;
+    padding-top: 6px;
+    padding-bottom: 15px;
+    padding-right: 20px;
+    padding-left: 10px;
+    margin: 21px 12px;
+    border-radius: 5px; */
+    padding: 5px 5px;
+    width: 200px;
+    height: auto;
+    margin-right: 7px;
+    margin-left: 5px;
+    margin-bottom: 7px;
+    float: left;
+    background: #FFFFA5;
+    font-size: 16px;
+    padding: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    /* position: relative; */
+    text-align: center;
+}
+.AddNote__button button{
+    position: relative;
+    width: 100px;
+    height: auto;
+    margin-left: 75px;
     background-color: royalblue;
     padding : 7px 10px;
     cursor: pointer;
     color: white;
     text-align: center;
     font-weight: 500;
+    text-transform: uppercase;
+    border: none;
+}
+.delete__button{
+    display: block;
+   margin: 5px auto;
+   border: none;
 }

@@ -1,3 +1,7 @@
+html, body * { 
+	box-sizing: border-box; 
+	font-family: 'Open Sans', sans-serif; }
+
 html {
 	height: 100%;
 }
@@ -5,6 +9,8 @@ html {
 body {
 	margin: 0;
 	height: 100%;
+	background: rgb(131,58,180);
+	background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(199,178,178,1) 49%, rgba(181,163,137,0.8300362381280637) 100%);
 }
 .container{
     display: table;

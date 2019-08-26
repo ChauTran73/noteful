@@ -1,18 +1,26 @@
+
 li{
     text-decoration: none;
     list-style: none;
 }
 .Folder__Name{
-    border: 1px solid black;
+    border: 2px solid black;
     padding-top: 6px;
     padding-bottom: 15px;
     padding-right: 20px;
     padding-left: 10px;
     margin: 11px 12px;
     border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 200;
+    color: white;
 }
 .Folder__Name:hover{
     background-color: wheat;
+}
+.active > li{
+    background-color: wheat;
+    color: black
 }
 
 .add-folder{
@@ -23,18 +31,28 @@ li{
     color: white;
     text-align: center;
     font-weight: 500;
+    border: none;
 }
 .selectedFolder{
     background-color: wheat;
 }
 .goBack__button{
     width: 120px;
-    margin-left: 50px;
+    margin-left: 30px;
     background-color: white;
     padding : 7px 10px;
     cursor: pointer;
     color: blue;
     text-align: center;
     font-weight: 500;
+}
+.deleteIcon{
+    display:inline-block;
+    margin: 3px auto;
+    padding: 4px 6px;
+    border-radius: 3px;
+    border: none;
+    background-color: red;
+    color: white
 }
 
