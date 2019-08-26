@@ -12,7 +12,7 @@ import AddFolder from './AddFolder/AddFolder'
 import AddNote from './AddNote/AddNote'
 import FoldersListError from './ErrorHandlers/FoldersListError'
 import NotesListError from './ErrorHandlers/NotesListError'
-import NotFoundPage from './NotFoundPage'
+
 
 class App extends Component {
   constructor(props){

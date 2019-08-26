@@ -3,7 +3,7 @@ import './FoldersList.css'
 import {NavLink} from 'react-router-dom'
 import APIContext from '../APIContext'
 import {Link} from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faTrashAlt,
   faFolder
@@ -39,13 +39,6 @@ class FoldersList extends Component{
     state ={
         shown: false
     }
-    static defaultProps = {
-        folders: [],
-        notes: [],
-        match: {
-            params: {}
-        }
-      };
      handleGoBack = () =>{
          this.props.history.goBack();
      }
@@ -57,7 +50,6 @@ class FoldersList extends Component{
     static contextType = APIContext;
     render(){
         const {shown} = this.state;
-        // const {folderId} = this.props.match.params;
         const {folders, deleteFolder} = this.context;
         const list = folders.map((folder,index)=>
         <NavLink to= {`/folder/${folder.id}`} onClick={this.toggleColor} className={shown ? 'active' : ''} key={index}>
