@@ -13,7 +13,6 @@ import AddNote from './AddNote/AddNote'
 import FoldersListError from './ErrorHandlers/FoldersListError'
 import NotesListError from './ErrorHandlers/NotesListError'
 
-
 class App extends Component {
   constructor(props){
     super(props);
