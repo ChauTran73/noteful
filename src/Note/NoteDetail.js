@@ -4,7 +4,7 @@ import APIContext from '../APIContext'
 import {NavLink} from 'react-router-dom'
 import './Note.css'
 import {deleteNoteRequest} from '../NotesList/NotesList'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faTrashAlt,
@@ -70,10 +70,10 @@ class NoteDetail extends Component{
 }
 export default NoteDetail;
 
-NoteDetail.propTypes = {
-    match: PropTypes.shape({
-        params: PropTypes.shape({
-          nodeId: PropTypes.string.isRequired
-        })
-      })
-    }
+// NoteDetail.propTypes = {
+//     match: PropTypes.shape({
+//         params: PropTypes.shape({
+//           nodeId: PropTypes.string.isRequired
+//         })
+//       })
+//     }

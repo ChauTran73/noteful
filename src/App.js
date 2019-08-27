@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import './App.css'
-import { Route, Switch } from "react-router-dom"
+import { Route } from "react-router-dom"
 import Sidebar from './SideBar'
 import Main from './Main'
 import Header from './Header/Header'

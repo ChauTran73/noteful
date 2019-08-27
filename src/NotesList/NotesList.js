@@ -3,7 +3,7 @@ import {NavLink, Link} from 'react-router-dom'
 import Note from '../Note/Note'
 import './NotesList.css'
 import APIContext from '../APIContext'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faTrashAlt,
@@ -72,7 +72,8 @@ class NotesList extends Component{
           <button className='delete__button' 
                     type='button'
                     onClick ={() => {
-                        deleteNoteRequest(note.id, deleteNote)}}>
+                        deleteNoteRequest(note.id, deleteNote)
+                        this.props.history.push('/')}}>
                    <FontAwesomeIcon icon={faTrashAlt} />
            
             </button>
@@ -97,10 +98,3 @@ class NotesList extends Component{
     }
 }
 export default NotesList;
-NotesList.propTypes = {
-    match: PropTypes.shape({
-        params: PropTypes.shape({
-          folderId: PropTypes.string.isRequired
-        })
-    })
-}

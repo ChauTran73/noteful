@@ -61,7 +61,10 @@ class FoldersList extends Component{
             </div>
             <button type='button' 
                     className='deleteIcon' 
-                    onClick={() => deleteFolderRequest(folder.id,deleteFolder)}>
+                    onClick={() => {
+                        deleteFolderRequest(folder.id,deleteFolder)
+                        this.props.history.push('/')}
+                    }>
                     <FontAwesomeIcon icon={faTrashAlt} />
             </button>
         </li>
