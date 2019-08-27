@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import APIContext from '../APIContext'
 import moment from 'moment'
 import './AddNote.css'
+import { BASE_URL } from '../App';
 
 class AddNote extends Component{
     static contextType = APIContext
@@ -45,7 +46,7 @@ class AddNote extends Component{
             content: this.state.content
             
         }
-        fetch('http://localhost:9090/notes',{
+        fetch(`${BASE_URL}notes`,{
             method: 'POST',
             body: JSON.stringify(note),
             headers: {'content-type': 'application/json'}

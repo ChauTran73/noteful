@@ -8,9 +8,10 @@ import {
   faTrashAlt,
   faFolder
  } from '@fortawesome/free-solid-svg-icons';
+import { BASE_URL } from '../App';
 
 function deleteFolderRequest(folderId, callback){ 
-    fetch(`http://localhost:9090/folders/${folderId}`,{
+    fetch(`${BASE_URL}folders/${folderId}`,{
         method: 'DELETE',
         headers: {
             'content-type': 'application/json'

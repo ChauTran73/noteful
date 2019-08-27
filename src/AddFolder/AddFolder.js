@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import APIContext from '../APIContext'
 import './AddFolder.css'
+import { BASE_URL } from '../App';
 
 
 class AddFolder extends Component{
@@ -24,7 +25,7 @@ class AddFolder extends Component{
             name: folderName
         }
         this.setState({ error: null })
-        fetch('http://localhost:9090/folders', {
+        fetch(`${BASE_URL}/folders`, {
             method: 'POST',
             body: JSON.stringify(folder),
             headers: {'content-type': 'application/json'}

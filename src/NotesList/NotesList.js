@@ -3,7 +3,7 @@ import {NavLink, Link} from 'react-router-dom'
 import Note from '../Note/Note'
 import './NotesList.css'
 import APIContext from '../APIContext'
-// import PropTypes from 'prop-types'
+import {BASE_URL} from '../App'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faTrashAlt,
@@ -11,7 +11,7 @@ import {
  } from '@fortawesome/free-solid-svg-icons';
 
 export function deleteNoteRequest(noteId, callback){
-    fetch(`http://localhost:9090/notes/${noteId}`,{
+    fetch(`${BASE_URL}notes/${noteId}`,{
         method: 'DELETE',
         headers: {
             'content-type': 'application/json'
