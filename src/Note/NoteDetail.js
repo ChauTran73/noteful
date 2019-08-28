@@ -28,7 +28,7 @@ class NoteDetail extends Component{
         //filter out the notes that match the folder via folderid
         const selectedNote = notes.find(note => note.id === noteId) //return a single obj
         
-        const modifiedDate =  moment(selectedNote.modified).format('MM/DD/YYYY ha z');
+        const modifiedDate =  moment(selectedNote.modified).format('MM/DD/YYYY hh:mm a');
         const folderForNote = folders.find(folder => folder.id === selectedNote.folderId) ;
        
         return(

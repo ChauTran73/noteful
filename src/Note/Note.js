@@ -8,7 +8,7 @@ class Note extends Component{
         modified: ''
     }
     render(){
-        const modifiedDate =  moment(this.props.modified).format('MM/DD/YYYY ha z')
+        const modifiedDate =  moment(this.props.modified).format('MM/DD/YYYY h:mm a')
         return(
             <>
                
