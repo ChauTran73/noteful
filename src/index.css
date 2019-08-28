@@ -13,7 +13,8 @@ body {
 	background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(199,178,178,1) 49%, rgba(181,163,137,0.8300362381280637) 100%);
 }
 .container{
-    display: table;
+	display: table;
+	text-align: center;
 	width: 100%;
 	height: 100%;
 }
@@ -21,9 +22,31 @@ body {
     display: table-cell;
 	width: 85%;
 	vertical-align: top;
+
 }
 .SideBar{
     display: table-cell;
 	width: 15%;
 	vertical-align: top;
 }
+/*make it responsive!!!
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+	body {
+	  background-color: #F09A9D; /* Red */
+	}
+  }
+  
+  /* Tablet Styles */
+  @media only screen and (min-width: 401px) and (max-width: 960px) {
+	body {
+	  background-color: #F5CF8E; /* Yellow */
+	}
+  }
+  
+  /* Desktop Styles */
+  @media only screen and (min-width: 961px) {
+	body {
+	  background-color: #B2D6FF; /* Blue */
+	}
+  }

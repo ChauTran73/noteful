@@ -78,13 +78,13 @@ class FoldersList extends Component{
                 <ul>
                    
                     {list }
-
+                <div className='addFolder_button'>
                     <Link to='/add-folder'>  
-                        <button className="add-folder" >
+                        <button >
                         Add a folder  
                         </button>
                     </Link>
-                   
+                  </div> 
                 </ul>
                 
                 <button onClick={this.handleGoBack} 

@@ -4,14 +4,6 @@
     margin: 8px auto;
 }
 .Note{
-    /* text-align: center;
-    border: 1px solid black;
-    padding-top: 6px;
-    padding-bottom: 15px;
-    padding-right: 20px;
-    padding-left: 10px;
-    margin: 21px 12px;
-    border-radius: 5px; */
     padding: 5px 5px;
     width: 200px;
     height: auto;
@@ -23,7 +15,6 @@
     font-size: 16px;
     padding: 20px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
-    /* position: relative; */
     text-align: center;
 }
 .AddNote__button button{

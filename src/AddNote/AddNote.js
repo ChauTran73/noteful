@@ -46,7 +46,7 @@ class AddNote extends Component{
             content: this.state.content
             
         }
-        fetch(`${BASE_URL}/notes`,{
+        fetch(`${BASE_URL}notes`,{
             method: 'POST',
             body: JSON.stringify(note),
             headers: {'content-type': 'application/json'}

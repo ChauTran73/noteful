@@ -13,7 +13,7 @@ class NotesListError extends Component{
     render() {
         if (this.state.hasError) {      
           return (
-            <h2>Could not display the note</h2>
+            <h2>Could not display the note. Refresh the page</h2>
           );
         }
         return this.props.children;

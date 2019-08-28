@@ -25,7 +25,7 @@ class AddFolder extends Component{
             name: folderName
         }
         this.setState({ error: null })
-        fetch(`${BASE_URL}/folders`, {
+        fetch(`${BASE_URL}folders`, {
             method: 'POST',
             body: JSON.stringify(folder),
             headers: {'content-type': 'application/json'}

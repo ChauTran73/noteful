@@ -13,7 +13,7 @@ import AddNote from './AddNote/AddNote'
 import FoldersListError from './ErrorHandlers/FoldersListError'
 import NotesListError from './ErrorHandlers/NotesListError'
 
-export const BASE_URL = 'https://noteful-json-server.herokuapp.com/db'
+export const BASE_URL = 'https://noteful-json-server.herokuapp.com/'
 
 class App extends Component {
   constructor(props){
@@ -29,7 +29,7 @@ class App extends Component {
 
   componentDidMount(){
     console.log('fetching')
-    fetch(BASE_URL, {
+    fetch(BASE_URL + 'db', {
       method: 'GET',
       headers: {'content-type': 'application/json'}
     })
