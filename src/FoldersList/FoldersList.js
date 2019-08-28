@@ -43,17 +43,13 @@ class FoldersList extends Component{
      handleGoBack = () =>{
          this.props.history.goBack();
      }
-     toggleColor = () =>{
-        this.setState({
-            hidden: true
-        });
-     }
+     
     static contextType = APIContext;
     render(){
         const {shown} = this.state;
         const {folders, deleteFolder} = this.context;
         const list = folders.map((folder,index)=>
-        <NavLink to= {`/folder/${folder.id}`} onClick={this.toggleColor} className={shown ? 'active' : ''} key={index}>
+        <NavLink to= {`/folder/${folder.id}`} className={shown ? 'active' : ''} key={index}>
         <li key={index} className='Folder__Name'>
             <div>
             
