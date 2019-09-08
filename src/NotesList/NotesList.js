@@ -45,14 +45,12 @@ class NotesList extends Component{
       };
      
    static contextType = APIContext;
-
- 
     render(){
         const { folderId } = this.props.match.params;
         const { notes, deleteNote} = this.context;
         let notesForFolder =[];
    
-        //filter out the notes that belong to a specific folder here
+        //filter out the notes that belong to a specific folder here using conditionals
       if(!folderId){
         notesForFolder = notes
       } 
@@ -65,7 +63,7 @@ class NotesList extends Component{
        <li  key={note.id} className="Note" >
             <NavLink to={`/note/${note.id}`}>
                 <Note key={note.id} 
-                    name={note.name} 
+                    name={ note.name.value || note.name}  //edited note here
                     modified={note.modified}
                     />
             </NavLink>

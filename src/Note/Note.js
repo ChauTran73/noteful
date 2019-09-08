@@ -12,8 +12,8 @@ class Note extends Component{
         return(
             <>
                
-                    <h1>{this.props.name}</h1>
-                    <span>Date modified on {modifiedDate}</span>
+                <h1>{this.props.name}</h1>
+                <span>Date modified on {modifiedDate}</span>
                      
                        
             </>

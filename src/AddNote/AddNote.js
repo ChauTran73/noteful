@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import APIContext from '../APIContext'
 import moment from 'moment'
 import './AddNote.css'
+import ValidationError from '../ValidationError'
 import { BASE_URL } from '../App';
 
 class AddNote extends Component{
@@ -10,24 +11,35 @@ class AddNote extends Component{
     constructor(props){
         super(props);
         this.state={
-            noteName: '',
+            noteName: {
+                value: '',
+                touched: false
+            },
             modified: moment(),
             folderId: this.props.match.params,
-            content: '',
+            content: {
+                value: '', 
+                touched: false
+            },
             error: null,
         }
     }
     handleChangeName = name => {
         this.setState({
-            noteName: name,
+            noteName: {
+                value: name, 
+                touched: true
+            }
             
         })
     }
     handleChangeContent = desc => {
         this.setState({
-            content: desc,
-            
-        })
+            content: {
+                value: desc,
+                touched: true
+        }
+    })
     }
     //i want the folderid to be prepopulated when click Add Note within a folder
     handleSelectFolder = folder =>{
@@ -40,10 +52,10 @@ class AddNote extends Component{
         e.preventDefault();
         const {addNote} = this.context;
         const note = {
-            name: this.state.noteName,
+            name: this.state.noteName.value,
             modified: this.state.modified,
             folderId: this.state.folderId,
-            content: this.state.content
+            content: this.state.content.value
             
         }
         fetch(`${BASE_URL}notes`,{
@@ -68,8 +80,23 @@ class AddNote extends Component{
     handleClickCancel=()=>{
         this.props.history.push('/')
     }
+    handleNoteNameError=()=>{
+        const {noteName} = this.state;
+        if(noteName.value.length < 3 || noteName.value.length > 50){
+            return 'Note name must be of length between 3 and 50 characters'
+        }
+        
+    }
+    handleContentError=()=>{
+        const {content} = this.state;
+        if(content.value.length < 100){
+            return 'Enter at least 100 characters for content'
+        }
+    }
     render(){
         const {error}= this.state;
+        const nameError = this.handleNoteNameError();
+        const contentError = this.handleContentError();
         return(
             <div className='AddNote'>
                 <h2>Create a new note</h2>
@@ -86,11 +113,12 @@ class AddNote extends Component{
                             onChange={e => this.handleChangeName(e.target.value)}
                             required
                     />
+                    {this.state.noteName.touched && <ValidationError message={nameError}/>}
                     <label htmlFor='selectFoldder'>Select a folder</label>
                    
                         <select onChange={e => this.handleSelectFolder(e.target.value)} required>
                         <option defaultValue={this.context.folders[0].id}></option>
-                        {this.context.folders.map(folder => 
+                            {this.context.folders.map(folder => 
                                 <option value={folder.id} key={folder.id} defaultValue={folder.id}>
                                 {folder.name}</option>)
                             }
@@ -107,11 +135,14 @@ class AddNote extends Component{
                             onChange={e => this.handleChangeContent(e.target.value) } 
                             required
                     />
+                    {this.state.content.touched && <ValidationError message={contentError}/>}
                     <div className='AddNote__buttons'>
-                    <button className='save' type='submit'>Save</button>
+                    <button className='save' 
+                            type='submit' 
+                            disabled={this.handleNoteNameError()|| this.handleContentError()}>Save</button>
                     <button  className='cancelNote' onClick={this.handleClickCancel}>Cancel</button>
                     </div>
-                    
+                     
                 </form>
                 
             </div>

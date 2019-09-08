@@ -16,7 +16,7 @@
     transition: opacity .5s ease, transform .5s ease;
 }
 label{
-    font-weight: 400;
+  font-weight: 400;
   text-transform: uppercase;
   font-size: 13px;
   padding-left: 15px;

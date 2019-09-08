@@ -4,7 +4,6 @@ import APIContext from '../APIContext'
 import {NavLink} from 'react-router-dom'
 import './Note.css'
 import {deleteNoteRequest} from '../NotesList/NotesList'
-// import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faTrashAlt,
@@ -29,6 +28,7 @@ class NoteDetail extends Component{
         const selectedNote = notes.find(note => note.id === noteId) //return a single obj
         
         const modifiedDate =  moment(selectedNote.modified).format('MM/DD/YYYY hh:mm a');
+        //get the folder name that the note belongs to
         const folderForNote = folders.find(folder => folder.id === selectedNote.folderId) ;
        
         return(
@@ -37,10 +37,10 @@ class NoteDetail extends Component{
                 <NavLink to= {`/note/${noteId}`} >
                     <h1><FontAwesomeIcon icon={faFolder} />{' '}
                         {folderForNote.name}
-                        </h1>
+                     </h1>
 
                     
-                        <h2>{selectedNote.name}</h2>
+                        <h2>{selectedNote.name}</h2> 
                         
                         <p>Date modified on {modifiedDate}</p>
                         </NavLink>   
@@ -69,11 +69,3 @@ class NoteDetail extends Component{
     }
 }
 export default NoteDetail;
-
-// NoteDetail.propTypes = {
-//     match: PropTypes.shape({
-//         params: PropTypes.shape({
-//           nodeId: PropTypes.string.isRequired
-//         })
-//       })
-//     }

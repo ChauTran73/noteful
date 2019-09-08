@@ -50,7 +50,6 @@ class App extends Component {
     .catch(error => this.setState({error, loading: false}))
   }
   
-  //omit onSelectNote and onSelectFoldere to update selectedNote and selelectedFolder
   deleteFolder = (folderId) => {
     const newFolders = this.state.folders.filter(folder => folder.id !== folderId)
     const newNotes = this.state.notes.filter(note => note.folderId !== folderId)

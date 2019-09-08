@@ -15,6 +15,7 @@ li{
     text-transform: uppercase;
     font-weight: 200;
     color: white;
+    
 }
 .Folder__Name:hover{
     background-color: wheat;

@@ -53,10 +53,12 @@ class AddFolder extends Component{
     }
     handleFormValidation = () =>{
         const { folderName } = this.state;
-        if(folderName.value.length < 3){
-            return 'Folder name must be greater than 3 characters'
+        if(folderName.value.length < 3 || folderName.value.length > 50){
+            return 'Folder name must be of length between 3 and 50 characters'
         }
-     
+        // if(folderName.name.match(/[-!$%^&*()_+|~=`{}[:;<>?,.@#\]]/g)){
+        //     return 'Folder name can only includes letters and numbers'
+        // }
     }
     render(){
         const { error } = this.state;
